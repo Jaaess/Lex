@@ -1,0 +1,372 @@
+\chapter{Ergebnisse}
+    \label{Ergebnisse}
+    Im folgenden Kapitel wird das entwickelte System zur Modellidentifikation angewendet. Dafür werden wieder künstliche Messdaten verwendet. Die Ergebnisse beschränken sich 
+    auf Strecken mit einem realen physikalischen Bezug. Daher wird von den Systemen aus Kapitel \ref{Analyse} nur die Strecke Nr.1 betrachtet. Zusätzlich wird der sogenannte 
+    Lorenz-Attraktor als Strecke verwendet.
+    \section{Künstliche Messreihen}
+        Ein Test mit künstlichen Messdaten ist nur beschränkt aussagekräftig, da keine (bzw. nur künstliche) Störungen auftreten. Der Vorteil ist, dass bei einem 
+        bekannten System die Ergebnisse leicht bewertet werden können. Die Ergebnisse in diesem Kapitel sollen dazu dienen, die im vorangegangenen Kapitel \ref{Aufbau} gemachten Annahmen 
+        zu bestätigen bzw. zu widerlegen. Mit der ersten Strecke wird zunächst eine passende Kombination der Parameter bestimmt, bevor im nächsten Schritt mit einer zweiten Strecke
+        überprüft werden soll, wie gut das eingestellte System bei einer unbekannten Strecke arbeitet.
+        \subsection{Strecke Nr.1}
+            Die Strecke Nr.1 wurde in Kapitel \ref{Analyse} bereits in einer leicht abgewandelten Form für die Analyse der Netzstrukturen verwendet. 
+            Da in der allgemeinen Analyse nicht auf die physikalische 
+            Bedeutung der Strecke eingegangen wurde, soll die Erläuterung an dieser Stelle kurz nachgeholt werden.
+            \subsubsection{Streckenbeschreibung}
+                Das System der Differentialgleichungen beschreibt die Strömung um einen zweidimensionalen Körper. Die Gleichungen und Überlegungen wurden aus dem 
+                Vorlesungsskript \cite{kingNL} übernommen. Der Körper ist in Abbildung \ref{Abb:Koerper} dargestellt.
+                \begin{figure}[h]
+                    \includegraphics[scale=1.0]{Abbildungen/Ergebnisse/Koerper.png}
+                    \centering
+                    \caption{Profil im Windkanal (aus \cite{kingNL})}
+                    \label{Abb:Koerper}    
+                \end{figure}
+                Am Ende des Profils kann die Strömung durch periodisches Einblasen oder Absaugen im Nachlauf beeinflusst werden. Das System wird durch die folgenden 
+                Gleichungen beschrieben:
+                \begin{align}
+                    \begin{split}
+                    &\dot{A}_1 = c_1(1-c_2\,a_3 - c_3\,a_4)A_1\\
+                    &\dot{A}_2 = c_4\,A_2+g\,\tilde{u} \\
+                    &\dot{a}_3 = c_5(a_3 - A_1^2) \\
+                    &\dot{a}_4 = c_6(a_4 - A_2^2)
+                    \end{split}
+                \end{align}
+                Dabei beschreiben $A_1$ und $A_2$ die Amplituden im nicht angeregten und im angeregten Zustand. Die Zustandsgrößen $a_3$ und $a_4$ entsprechen den Modenamplituden zweier
+                Shiftmoden. Mit einer konstanten stationären Stellgröße $\tilde{u}_s \neq 0$ ergeben sich mehrere Ruhelagen. Eine davon ist 
+                \begin{align}
+                    &A_{1s} = \sqrt{\frac{1}{c_2}-\frac{c_3\,g^2}{c_2\,c_4^2}\tilde{u}_s^2}\\
+                    &A_{2s} = - \frac{g}{c_4}\tilde{u}_s\\
+                    &a_{3s} = \frac{1}{c_2}-\frac{c_3\,g^2}{c_2\,c_4^2}\tilde{u}_s^2\\
+                    &a_{4s} = \frac{g^2}{c_4^2}\tilde{u}^2_s.
+                \end{align}
+                Werden nun neue Koordinaten $\vec{x} = \vec{\tilde{x}}-\vec{x_s} = (A_1,A_2,a_3,a_4)^T - (A_{1s},A_{2s},a_{3s},a_{4s})^T$ und $u = \tilde{u} - u_s$ eingeführt, welche 
+                die Auslenkung von diesem stationären Arbeitspunkt beschreiben, kann das System alternativ beschrieben werden:
+                \begin{align}
+                \begin{split}
+                    &\dot{x}_1 = c_1(c_2\,x_3 + c_3\,x_4)(A_{1s}+x_1)\\
+                    &\dot{x}_2 = c_4\,x_2+g\,u \\
+                    &\dot{x}_3 = c_5(2\,A_{1s}\,x_1 + x_1^2 - x_3) \\
+                    &\dot{x}_4 = c_6(2\,A_{2s}\,x_2 + x_2^2 - x_4)
+                    \end{split} 
+                \end{align}
+                Der Systemausgang ist wie bisher die Summe aus den beiden Zustandvariablen $x_1$ und $x_2$. 
+                Als Parameter wurden die Werte in Tabelle \ref{Tab:Parameter1} gewählt. Als stationärer Arbeitspunkt wurde $u_s = 0{,}5$ eingestellt.
+                \begin{table}[h]
+                    \begin{tabular}{|c||c|c|c|c|c|c|c|}
+                        \hline
+                        Parameter &$c_1$&$c_2$&$c_3$&$c_4$&$c_5$&$c_6$&$g$\\
+                        \hline
+                        Wert &$10$&$31$&$25$&$-10$&$20$&$20$&$2$\\
+                        \hline
+                    \end{tabular}
+                    \centering
+                    \caption{Parameter der Strecke Nr.1}
+                    \label{Tab:Parameter1}
+                \end{table}
+         
+            \subsubsection{Parameteranpassung}
+                Um für die Parametereinstellung einen Ausgangspunkt festzulegen, wird zunächst eine Berechnung mit einer willkürlichen Kombination der Parameter durchgeführt. Mit diesen 
+                Ergebnissen als Referenz werden dann die Parameter einzeln betrachtet und angepasst. Eine Tabelle mit allen Testreihen ist in Anhang \ref{Anhang:Online_Tabelle} zu finden. Die Parameter 
+                der Ausgangskonfiguration sind in Tabelle \ref{Tab:ParameterRef} aufgelistet.
+                \begin{table}[h]
+                    \begin{tabular}{c||ccccccc}
+                        %\hline
+                        Parameter &Signal&Eingänge $u(t)$&Eingänge $y(t)$&$|I|_{last}$&$|I|_{rand}$&$\Delta|I|_{rand}$&$n_{max}$\\
+                        %\hline
+                        Wert &Step&$3$&$3$&$10$&$100$&$1$&$5$\\
+                        \hline
+                        \hline
+                        Parameter &$k_{p}$&$s0_{E}$&$\Delta s_{E}$&$k_{max}$&&&\\
+                        %\hline
+                        Wert &$5$&$10^{-3}$&$0{,}8$&$2000$&&&\\
+                        %\hline
+                    \end{tabular}
+                    \centering
+                    \caption{Parameter für die Referenzsimulation (Strecke Nr.1)}
+                    \label{Tab:ParameterRef}
+                \end{table}
+                Um den Zeitaufwand einer Simulation zu beschränken, wurde jeweils ein Zeitraum von etwa 50 Minuten betrachtet. Der zulässige Fehler $E_{max}$ wurde mit $10^{-7}$ sehr klein gewählt,
+                um sicherzustellen, dass das Training über die gesamte Simulationszeit fortgesetzt wird. Um Rechenzeit zu sparen, wird die Prediction immer nur alle 100 Zeitschritte berechnet.\\
+                Zur Analyse wird der Verlauf des online berechneten Fehlermaßes über die Zeit betrachtet. Abbildung \ref{Abb:RealTime_Testreihe1} 
+                zeigt den Verlauf zusammen mit der Strukturentwicklung des Netzes. 
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{semilogyaxis}[xmin = 0, xmax = 30, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Fehler, x unit= Min , y unit=] 
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_1/pred_error.txt};
+                        \end{semilogyaxis}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 30, width=16cm, height=4cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Neuronen, x unit= Min, y unit= ,]  
+                            \addplot[mark=none,red] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_1/struktur.txt};
+                            %\draw (axis cs:1000,2) circle[radius=2];
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Fehler und Strukturverlauf (Anzahl der Neuronen auf dem letzten Layer) für Referenzsimulation (Strecke Nr.1)}
+                    \label{Abb:RealTime_Testreihe1}
+                \end{figure}
+                Dabei sind allerdings nur die ersten 30 Minuten dargestellt, da danach keine Strukturanpassungen mehr auftreten. Dies bedeutet auch, dass sich der Fehler in 
+                diesem Bereich nicht mehr verkleinert.\\
+                Es lässt sich erkennen, dass sich der Fehler über die Zeit reduziert. Zwar ist dieser Vorgang nicht monoton, allerdings lassen sich deutlich die zunehmend kleineren
+                Spitzen erkennen. Vor allem in den ersten vier Minuten wird die Struktur häufig angepasst, was auf eine schnelle Verbesserung der Performance schließen lässt. 
+                Danach wird über mehr als 20 Minuten mit dieser Struktur trainiert, bis wieder die Fehlergrenze unterschritten wird und die Struktur erneut angepasst wird. Mit 
+                dieser Struktur wird dann ein Ergebnis von etwa $5 \cdot 10^{-6}$ erzielt und es wird ein neuer Layer hinzugefügt (siehe Abbildung \ref{Abb:RealTime_Testreihe1}). Der neue Layer entsteht an 
+                der Stelle wo der Wert von fünf auf eins wechselt, da nur die Anzahl der Neuronen auf dem letzten Layer aufgetragen ist. Danach kann 
+                die Fehlergrenze, die nun 20\,\% unterhalb von etwa $5 \cdot 10^{-6}$ liegt, in der simulierten Zeit nicht mehr erreicht werden.\\
+                Um Veränderungen mit den einzelnen Parametern zu identifizieren, wird im Folgenden jeweils der entsprechende Parameter verändert. Dabei war es durch den zeitlichen 
+                Aufwand im Rahmen dieser Arbeit nicht möglich, die Parameter so ausführlich zu variieren wie in der Offline-Betrachtung. Alle Testreihen für den Online-Betrieb sind 
+                in Anhang \ref{Anhang:Online_Tabelle} aufgelistet. Die jeweiligen Verläufe des Fehlers und 
+                der Strukturanpassungen sind ebenfalls in Anhang \ref{Anhang:Testreihen_online} zu finden. An dieser Stelle werden die Ergebnisse kurz zusammengefasst:
+                \begin{itemize}
+                    \item \textbf{Alternatives Testsignal:} Für das Training z.B. mit einem Chirp-Signal ergeben sich ähnliche Verläufe des Fehlers und
+                    der Strukturentwicklung. Es ist davon auszugehen, dass im Trainingsbetrieb das Testsignal kaum einen Einfluss auf die Identifikation hat. Ob 
+                    das Modell nach Abschluss des Trainings mit allen Eingangssignalen gleich gut umgehen kann, ist getrennt zu bewerten.
+                    \item \textbf{Anzahl vergangener Beispiele $|I|_{last}$:} Eine höhere Anzahl an Beispielen aus direkt voran gegangenen Zeitschritten scheint in dem durchgeführten 
+                    Test zu einer schnelleren Strukturanpassung zu führen. Ein gutes Ergebnis in Bezug auf den Fehler wird bereits bei etwa sieben Minuten erreicht. Danach ergibt sich auch 
+                    hier keine Verbesserung mehr. Generell ist davon auszugehen, dass eine höhere Anzahl an Beispielen aus direkt vorangegangenen Zeitschritten zu einer besseren 
+                    Anpassung auf den aktuellen Zustand führt. Damit sind auch die Ergebnisse der Prediction besser. 
+                    \item \textbf{Anzahl zufälliger Beispiele $|I|_{rand}$:} Eine Erhöhung der Anzahl der zufälligen Beispiele hat in der durchgeführten Simulation die gleiche 
+                    Auswirkung wie eine Erhöhung der Anzahl der vorangegangen Beispiele. Auch hier verbessert sich das Fehlerverhalten am Anfang sehr stark. Allgemein ist bei einer Erhöhung
+                    der Anzahl der Beispiele immer zu berücksichtigen, dass damit auch der Rechenaufwand deutlich anwächst. Es erscheint mit diesen Ergebnissen sinnvoll, die 
+                    Anzahl beider Beispielarten leicht zu erhöhen.
+                    \item \textbf{Anzahl der Eingänge:} In dem hier betrachteten Test konnte nur eine geringe Verbesserung durch die Erhöhung der Anzahl der Eingänge festgestellt werden. 
+                    Sicher ist es nicht sinnvoll nur einen Eingang zu benutzen, allerdings bestätigt sich das Ergebnis aus der Analyse in Kapitel \ref{Analyse}, 
+                    dass eine Erhöhung der Anzahl der Eingänge nicht zwangsläufig
+                    die Ergebnisse verbessert. Daher werden die Eingänge nur geringfügig von jeweils drei auf vier angepasst. Damit soll ein gewisser Overhead an Informationen 
+                    für andere Strecken geschaffen werden.
+                    \item \textbf{Anzahl der Neuronen auf einem Layer $n_{max}$:} Der Einfluss der Anzahl der Neuronen auf einem Layer ist schwierig zu bewerten, da in allen 
+                    Testreihen eine Anzahl von insgesamt sechs Neuronen nicht überschritten wird. Daher wird für die passende Einstellung das Ergebnis aus der Offline-Analyse betrachtet. 
+                    Dort zeigte sich, dass die Anzahl der Neuronen auf einem Layer deutlich größeren Einfluss auf die Performance hat als die Anzahl der Layer selbst. Daher wird die 
+                    Anzahl der Neuronen auf einem Layer auf acht erhöht.
+                    \item \textbf{Anzahl der neuen zufälligen Beispiele $\Delta|I|_{rand}$:} Eine Erhöhung der Anzahl, der in jedem Zeitschritt erneuerten zufälligen Beispiele, konnte
+                    in der durchgeführten Simulation zu einer Verbesserung in Bezug auf den Fehler führen. Der minimale Fehler konnte in diesem Fall auf $10^{-6}$ reduziert werden. 
+                    Ein stärkerer Wechsel der zufälligen Beispiele sorgt dafür, dass in jedem Training der Fehler stärker variiert, der durch das Netz zurück propagiert wird. Damit werden die 
+                    Anforderungen an das Training erhöht. Aus diesem Grund wird die Anzahl der neuen Beispiele pro Zeitschritt auf 40 erhöht. 
+                    \item \textbf{Anzahl der Predictionszeitschritte $k_{p}$:} Eine Erhöhung der Anzahl der Zeitschritte, für die die Prediction berechnet wird, führt zu einer generellen 
+                    Erhöhung des Niveaus des Fehlers. Da mehr Zeitschritte ausschließlich aus dem Modell berechnet werden, erhöht sich der Fehler automatisch. Die Anforderungen an 
+                    das Modell werden mit einer größeren Anzahl an Zeitschritten für die Prediction deutlich vergrößert. Zudem wächst der Rechenaufwand stark an. Daher wurde die Anzahl 
+                    unverändert gelassen. 
+                    \item \textbf{Reset-Interval $k_{max}$:} Die Länge des Reset-Intervalls (Anzahl der Zeitschritte vor neuer Initialisierung des letzten Layers) zeigt im Test kaum 
+                    einen Einfluss bei einer Erhöhung. Um dem Training noch etwas mehr Zeit für ein gutes Ergebnis zu geben, wurde die Anzahl auf 3000 erhöht.
+                    \item \textbf{Anfängliche Fehlergrenze $s_{0E}$:} Die anfängliche Fehlergrenze hat nur auf die ersten Strukturanpassungen Einfluss. Je größer sie gewählt wird, umso 
+                    schneller werden die ersten Strukturanpassungen durchgeführt. Mit diesem Wert kann der Benutzer festlegen, welche Performance bereits von einfachen Strukturen zu 
+                    erfüllen ist. Für die weiteren Berechnungen wurden keine Änderungen vorgenommen.
+                 \end{itemize}
+                 
+            \subsubsection{Angepasstes System}
+                Mit den Erkenntnissen aus dem vorangegangenen Abschnitt kann nun das System angepasst werden und die Simulation erneut durchgeführt werden. Die angepassten Parameter 
+                sind in Tabelle \ref{Tab:ParameterAngepasst} aufgeführt. 
+                \begin{table}[h]
+                    \begin{tabular}{c||ccccccc}
+                        %\hline
+                        Parameter &Signal&Eingänge $u(t)$&Eingänge $y(t)$&$|I|_{last}$&$|I|_{rand}$&$\Delta|I|_{rand}$&$n_{max}$\\
+                        %\hline
+                        Wert &Step&$4$&$4$&$25$&$200$&$40$&$5$\\
+                        \hline
+                        \hline
+                        Parameter &$k_{p}$&$s0_{E}$&$\Delta s_{E}$&$k_{max}$&&&\\
+                        %\hline
+                        Wert &$8$&$10^{-3}$&$0{,}8$&$3000$&&&\\
+                        %\hline
+                    \end{tabular}
+                    \centering
+                    \caption{Parameter für die angepasste Simulation (Strecke Nr.1)}
+                    \label{Tab:ParameterAngepasst}
+                \end{table}
+                Damit konnte der Fehlerverlauf in Abbildung \ref{Abb:RealTime_Testreihe101} erzielt werden.
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{semilogyaxis}[xmin = 0, xmax = 40, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Fehler, x unit= Min , y unit=] 
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_101/pred_error.txt};
+                        \end{semilogyaxis}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 40, width=16cm, height=4cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Neuronen, x unit= Min, y unit= ,]  
+                            \addplot[mark=none,red] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_101/struktur.txt};
+                            %\draw (axis cs:1000,2) circle[radius=2];
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Fehler und Strukturverlauf mit angepasstem System (Strecke Nr.1)}
+                    \label{Abb:RealTime_Testreihe101}
+                \end{figure}
+                Dabei wurde eine Simulationszeit von etwa 80 Minuten betrachtet (nur die ersten 40 Minuten sind dargestellt, da sich danach keine Verbesserungen mehr ergeben). 
+                Es ist zu erkennen, dass das Fehlerniveau um etwa eine Größenordnung niedriger liegt als in der 
+                Referenzsimulation (siehe Abbildung \ref{Abb:RealTime_Testreihe1}). Das deutet darauf hin, dass die Anpassung der Parameter sinnvoll ist. Die Strukturanpassung an 
+                sich verläuft sehr ähnlich. Auch in dieser Simulation werden insgesamt sechs Anpassungen durchgeführt, allerdings sind die Neuronen anders verteilt.
+                Das Ergebnis deutet darauf hin, dass mit den angepassten Parametern in jeder Struktur das Training effizienter durchgeführt werden konnte.\\
+                Um die Verbesserung des Modells zu verdeutlichen, zeigt Abbildung \ref{Abb:Modelle101} die gemessene Regelgröße und die mit drei verschiedenen Netzen berechneten Verläufe.
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 60, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Regelgröße $y(t)$, x unit= s , y unit=, legend entries={Messung,nach 1\,Min,nach 13\,Min,nach 30\,Min}] 
+                            \addplot[mark=none,black] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_101/Modellberechnung.txt};
+                            \addplot[mark=none,red] table[x index = {0}, y index = {3}]{Daten/Auswertung_Echtzeit_Setup_101/Modellberechnung.txt};
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {5}]{Daten/Auswertung_Echtzeit_Setup_101/Modellberechnung.txt};
+                            \addplot[mark=none,green] table[x index = {0}, y index = {7}]{Daten/Auswertung_Echtzeit_Setup_101/Modellberechnung.txt};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Verlauf der Regelgröße aus Messung und Modellberechnungen mit Modellen zu unterschiedlichen Zeitpunkten (Strecke Nr.1)}
+                    \label{Abb:Modelle101}
+                \end{figure}
+                Dabei zeigt sich deutlich, dass die Modelle mit der Zeit immer besser werden. Das Netz nach etwa einer Minute (rot) zeigt eine sehr deutliche Abweichung zur Messung (schwarz).
+                Nach etwa 13 Minuten (blau) ist das Ergebnis bereits verbessert. Auch nach etwa 30 Minuten (grün), bei der letzten Strukturanpassung, liegt die Modellberechnung
+                nochmal näher an der Messung. Diese Ergebnisse zeigen eindeutig, dass das System in der Lage ist, ein Modell über die Zeit sinnvoll 
+                anzupassen und die Modellqualität zunehmend zu verbessern.
+                
+            \subsubsection{Alterung der Strecke}
+                Reale Übertragungsglieder können sich im Laufe der Zeit z.B. durch Alterung verändern. Daher sollte sich das Modell auch mit der Zeit an die Alterung anpassen.
+                Nur so kann das Modell dauerhaft gleich gute Ergebnisse liefern. Um diese Eigenschaft zu überprüfen, wird der Strecke Nr.1 eine künstliche Alterung hinzugefügt. 
+                Der Parameter $c_2$ verändert sich linear mit der Zeit.
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 60, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=$u(t)$/$y(t)$, x unit= s , y unit=, legend entries={$u(t)$,$y(t)$}] 
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {1}]{Daten/Testsignale/Skript_Alterung.txt};
+                            \addplot[mark=none,red] table[x index = {0}, y index = {2}]{Daten/Testsignale/Skript_Alterung.txt};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Verlauf von Stellgröße und Regelgröße der Strecke Nr.1 mit linear alterndem Parameter $c_2$}
+                    \label{Abb:Alterung}
+                \end{figure}
+                Der Verlauf der Stellgröße und der Regelgröße für die Strecke mit veränderlichem Parameter ist in Abbildung 
+                \ref{Abb:Alterung} dargestellt.\\
+                Auch mit den erstellten Messdaten aus der gealterten Strecke wurde eine Simulation von etwa 30 Minuten durchgeführt. Die Verläufe des Fehlers und der Struktur sind
+                in Abbildung \ref{Abb:RealTime_Alterung} dargestellt.
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{semilogyaxis}[xmin = 0, xmax = 30, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Fehler, x unit= Min , y unit=] 
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_102/pred_error.txt};
+                        \end{semilogyaxis}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 30, width=16cm, height=4cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Neuronen, x unit= Min, y unit= ,]  
+                            \addplot[mark=none,red] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_102/struktur.txt};
+                            %\draw (axis cs:1000,2) circle[radius=2];
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Fehler und Strukturverlauf für die Identifikation von Strecke Nr.1 mit künstlicher Alterung}
+                    \label{Abb:RealTime_Alterung}
+                \end{figure}
+                Für diese Simulation zeigt sich ebefalls eine deutliche Verbesserung des Modells mit der Zeit. Daraus lässt sich schließen, dass das System auch 
+                in der Lage ist, den Alterungsprozess mit zu erlernen. Die Genauigkeit des Modells wird durch den veränderlichen Parameter in der Strecke nicht 
+                verändert. Das System ist in der Lage das Modell an den Alterungsprozess anzupassen und so zuverlässige Ergebnisse zu liefern.\\
+                Die Anpassung an die Alterung lässt sich besonders gut in der Betrachtung verschiedener Modelle über die Zeit feststellen. Abbildung \ref{Abb:Modelle102} zeigt den 
+                Verlauf der Messung und die mit den Modellen berechneten Verläufe der Regelgröße. 
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 60, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Regelgröße, x unit= s , y unit=, legend entries={Messung,nach 1\,Min,nach 2\,Min,nach 7\,Min}] 
+                            \addplot[mark=none,black] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_102/Modellberechnung.txt};
+                            \addplot[mark=none,red] table[x index = {0}, y index = {3}]{Daten/Auswertung_Echtzeit_Setup_102/Modellberechnung.txt};
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {4}]{Daten/Auswertung_Echtzeit_Setup_102/Modellberechnung.txt};
+                            \addplot[mark=none,green] table[x index = {0}, y index = {5}]{Daten/Auswertung_Echtzeit_Setup_102/Modellberechnung.txt};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Verlauf der Regelgröße aus Messung und Modellberechnungen mit Modellen zu unterschiedlichen Zeitpunkten (Strecke Nr.1 mit künstlicher Alterung)}
+                    \label{Abb:Modelle102}
+                \end{figure}
+                Dabei wurden die Modelle nach einer Minute, nach zwei Minuten und nach etwa sieben Minuten ausgewählt. Danach ergeben sich nur noch geringfügige Verbesserungen, 
+                die vor allem bei sehr langen Berechnungen mit dem Modell positive Auswirkungen haben. Bei den drei aufgeführten Modellen zeigt sich, wie das System den 
+                Alterungsvorgang zunehmend gut abbilden kann. Die Ergebnisse weisen darauf hin, dass das System auch zur Identifikation von Strecken verwendet werden kann, 
+                die über die Zeit veränderlich sind.          
+                                        
+        \subsection{Lorenz-Attraktor}
+            Das im vorangegangenen Abschnitt eingestellte System soll nun an einer weiteren Strecke getestet werden. Dafür wird der sogenannte Lorenz-Attraktor betrachtet.
+            \subsubsection{Streckenbeschreibung}
+                Der Lorenz-Attraktor wird durch ein System aus drei gekoppelten Differentialgleichungen beschrieben:
+                \begin{align}
+                    \begin{split}
+                    &\dot{x}_1 = a\,(x_2 - x_1)\\
+                    &\dot{x}_2 = b\,x_1 −x_2 −x_1\,x_3\\
+                    &\dot{x}_3 = − b\,x_3 + x_1\,x_2
+                    \end{split}
+                \end{align}
+                \begin{flushright}
+                    (Formel aus \cite{prill})
+                \end{flushright}
+                Eine sehr ausführliche Beschreibung des Systems und dessen Eigenschaften ist in \cite{prill} zu finden. Auf die genaue Herleitung wird an dieser Stelle verzichtet. 
+                Das System wird zur Beschreibung von Zuständen in der Erdatmosphäre verwendet, ebenso wie für die Beschreibung von bestimmten Phänomenen der Konvektion. Der Begriff 
+                Attraktor wird verwendet, da Lorenz bei der Arbeit an dem System feststellte, dass sich für bestimmte Parameter eine unregelmäßige Oszillation einstellt (vgl. \cite{prill}).
+                Da dieses chaotische Verhalten höchste Anforderungen an das Identifikationssystem stellt, wird hier explizit der chaotische Fall betrachtet. 
+                Dafür werden die Parameter $a = 10$, $b = 28$ und $c = 8/3$ gewählt (übernommen von \cite{wiki}). Um zusätzlich einen Kontrolleingriff zu ermöglichen und einen skalaren 
+                Ausgangswert zu erhalten, wird das System leicht modifiziert:
+                \begin{align}
+                    \begin{split}
+                    &\dot{x}_1 = 10\,(x_2 - x_1)+u\\
+                    &\dot{x}_2 = 28\,x_1 −x_2 −x_1\,x_3\\
+                    &\dot{x}_3 = − \frac{8}{3}\,x_3 + x_1\,x_2
+                    \end{split}\\
+                    &y = \frac{x_1+x_2+x_3}{100}
+                \end{align}
+                Diese Veränderung erlaubt die einfache Betrachtung als SISO-System wie bereits für Strecke Nr.1. Die Ergebnisse sind somit leichter darstellbar, als wenn 
+                alle Variablen des Systems betrachtet werden müssen.
+                
+            \subsubsection{Unangepasstes System}
+                Das Ziel ist es eine Parameterkombination zu finden, die für möglichst viele Strecken zuverlässig gute Ergebnisse ermöglicht. Daher wird nun das für die 
+                Strecke Nr.1 eingestellte System unverändert auf das Lorenz-System angewendet. Die Parameter sind in Tabelle \ref{Tab:ParameterAngepasst} aufgelistet. 
+                Abbildung \ref{Abb:RealTime_Testreihe201} zeigt den Fehler- und Strukturverlauf für die durchgeführte Simulation.
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{semilogyaxis}[xmin = 0, xmax = 40, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Fehler, x unit= Min , y unit=] 
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_201/pred_error.txt};
+                        \end{semilogyaxis}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 40, width=16cm, height=4cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Neuronen, x unit= Min, y unit= ,]  
+                            \addplot[mark=none,red] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_201/struktur.txt};
+                            %\draw (axis cs:1000,2) circle[radius=2];
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Fehler und Strukturverlauf für Lorenz-System mit vorhandenen Parametern}
+                    \label{Abb:RealTime_Testreihe201}
+                \end{figure} 
+                Es sind wieder nur die ersten 40 von 80 Minuten der Simulation dargestellt, da danach keine deutliche Veränderung mehr auftritt. 
+                Es fällt auf, dass insgesamt das Fehlerniveau deutlich höher ist als für Strecke Nr.1. Dies ist auf das schwierige und chaotische Verhalten des Lorenz-Attraktors 
+                zurückzuführen. Eine Verbesserung über die Zeit ist jedoch weiterhin festzustellen. Durch das höhere Fehlerniveau treten zudem weniger Strukturanpassungen auf. 
+                Es scheint mit diesen Einstelllungen schwierig zu sein, das Modell stetig zu verbessern. Eine Verbesserung kann möglicherweise durch eine Anpassung der anfänglichen 
+                Fehlergrenze $s_{0E}$ erreicht werden.\\
+                Abbildung \ref{Abb:Modelle201} zeigt zwei unterschiedliche Modelle jeweils kurz vor der Strukturanpassung. 
+                Hier ist zwischen den beiden Modellen zwar eine leichte Verbesserung über die Zeit zu erkennen, allerdings bei weitem nicht so deutlich wie für Strecke Nr.1.
+                Dies deutet ebenfalls darauf hin, dass die gewählten Parameter für das System noch nicht passend sind.  
+                \begin{figure}[H]
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 60, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Regelgröße, x unit= s , y unit=, legend entries={Messung,nach 2\,Min,nach 20\,Min}] 
+                            \addplot[mark=none,black] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_201/Modellberechnung.txt};
+                            \addplot[mark=none,red] table[x index = {0}, y index = {2}]{Daten/Auswertung_Echtzeit_Setup_201/Modellberechnung.txt};
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {3}]{Daten/Auswertung_Echtzeit_Setup_201/Modellberechnung.txt};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Verlauf der Regelgröße aus Messung und Modellberechnungen mit Modellen zu unterschiedlichen Zeitpunkten (Lorenz-Attraktor)}
+                    \label{Abb:Modelle201}
+                \end{figure}
+
+            \subsubsection{Angepasstes System}
+                Um zu überprüfen, ob die Ergebnisse für das Lorenz-System noch zu verbessern sind, wurden diverse Parameterkombinationen ausprobiert. Dabei ergaben sich die besten Ergebnisse
+                für die Referenzparameter aus Tabelle \ref{Tab:ParameterRef}.   
+                \begin{figure}[h]
+                    \begin{tikzpicture}
+                        \begin{axis}[xmin = 0, xmax = 60, width=16cm, height=6cm, grid=major, grid style={dashed,gray!30}, xlabel=Zeit, 
+                            ylabel=Regelgröße, x unit= s , y unit=, legend entries={Messung,nach 12\,Min,nach 50\,Min}] 
+                            \addplot[mark=none,black] table[x index = {0}, y index = {1}]{Daten/Auswertung_Echtzeit_Setup_11/Modellberechnung.txt};
+                            \addplot[mark=none,red] table[x index = {0}, y index = {3}]{Daten/Auswertung_Echtzeit_Setup_11/Modellberechnung.txt};
+                            \addplot[mark=none,blue] table[x index = {0}, y index = {5}]{Daten/Auswertung_Echtzeit_Setup_11/Modellberechnung.txt};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Verlauf der Regelgröße aus Messung und Modellberechnungen mit Modellen zu unterschiedlichen Zeitpunkten (Lorenz-Attraktor, angepasste Parameter)}
+                    \label{Abb:Modelle11}
+                \end{figure}
+                Abbildung \ref{Abb:Modelle11} zeigt den gemessenen Verlauf der Stellgröße zusammen mit zwei Verläufen, die mit Modellen berechnet wurden. Dabei zeigt sich, dass in 
+                dieser Konfiguration die Ergebnisse über die Zeit deutlich besser werden. Der Verlauf mit dem Modell nach etwa 50 Minuten liegt deutlich näher an der Messung als 
+                der Verlauf mit dem Modell nach etwa zwölf Minuten.\\
+                Das Ergebnis zeigt, dass die Parameter einen starken Einfluss auf die Funktionsweise des Systems haben. Mit den hier betrachteten Versuchen konnte 
+                noch keine Parametereinstellung gefunden werden, die durchweg positive Ergebnisse liefert. Es ist auch möglich, dass eine für alle Strecken passende 
+                Parametereinstellung nicht existiert. Im Rahmen dieser Arbeit war der Zeitaufwand einer ausführlichen Parameteranalyse jedoch zu groß.   
+            

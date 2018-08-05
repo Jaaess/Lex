@@ -1,0 +1,164 @@
+\documentclass[12pt,a4paper,listof=totocnumbered, bibliography=totocnumbered,oneside]{scrbook}
+
+\usepackage[ngerman]{babel} 						%Deutsche Trennung
+\usepackage[utf8]{inputenc}						    %Zeichensatz
+%\usepackage[numbers]{natbib}					    %Zusätzliche Simbole
+\usepackage[backend=biber]{biblatex} 
+\bibliography{Literatur}
+									
+\usepackage{amsmath}        					    %MathePacket
+\usepackage{amsfonts}						        %Zusätliche Mathezeichen
+\usepackage{amssymb}							    %Zusätzliche Mathezeichen wie Pfeile 
+\usepackage[]{graphicx}					            %Packet für Bilder
+
+\usepackage[headsepline,footsepline,plainfootsepline,markcase=upper]{scrlayer-scrpage}
+\usepackage{tabularx}							    %Tabellen
+\usepackage{tabu}
+\usepackage{geometry}							    %Seitengeometrie
+\usepackage[onehalfspacing]{setspace}			    %Zeilenabstand
+\usepackage[printonlyused]{acronym}			    %Abkürzungen
+\usepackage{subfig}								    %mehrere Bilde
+%\usepackage{floatflt}							    %Objekte von Text umfließen lassen
+\usepackage{float}								    %Positionierung von Objeten
+\usepackage{wrapfig}							    %Objekte von Text umfließen lassen
+\usepackage[usenames,dvipsnames]{color}		    %Farben für Latex
+\usepackage{colortbl}							    %Farben für Tabellen
+\usepackage{paralist}							    %Auflistungen
+\usepackage{array}							        %Tabllen und mAtrizen in Matheumgebung
+\usepackage{titlesec}							    %Überschriften verändern
+\usepackage{parskip}							    %Absätze einstellen
+%\usepackage{picins}							    %Umfließen vom Text
+\usepackage[subfigure,titles]{tocloft}			    %Inhaltsverzeichnis formatieren
+\usepackage[breaklinks=true,pdfpagelabels=true]{hyperref}%Verlinkungen erstellen
+\usepackage{listings}							    %Quellcode einfügen
+\usepackage{siunitx}							    %SI Schreibweise
+\usepackage{chngcntr}							    %figurennumerierung
+\usepackage[hyphenbreaks]{breakurl}			    %Zeilenumbruch links
+%\usepackage{multibib}							    %mehrere literaturverzeichnisse
+%\usepackage{times}								    %Times new roman
+\usepackage{longtable}							    %Tabellen über mehrere Seiten
+\usepackage{framed}								    %Rahmen
+\usepackage{diagbox}							    %Diagonalboxen für Tabellen
+\usepackage{xcolor}								    %noch mehr Farben						
+\usepackage{nicefrac}							    %schöne Brüche
+\usepackage{textpos}							    %Positionierung von Text
+\usepackage{multicol}
+
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{tikz}
+\usepgfplotslibrary{units}
+%\pgfplotsset{compat=1.10}
+\usepackage{caption}
+
+%Eigene Farben
+\definecolor{lightgray}{gray}{0.90}
+\definecolor{tableheadergray}{gray}{0.95}
+\definecolor{limegreen}{HTML}{E1F5A9}
+\definecolor{tured}{HTML}{C50E1F}
+\definecolor{tugrey}{HTML}{717171}
+
+\newenvironment{cmssb}{\fontfamily{cmss}\fontseries{bx}\fontshape{n}\selectfont}{\par}
+\newenvironment{cmss}{\fontfamily{cmss}\fontseries{m}\fontshape{n}\selectfont}{\par} 
+
+
+%Geometrie der Seite Einrichten
+\geometry{a4paper, top=20mm, left=25mm, right=15mm, bottom=20mm, headsep=5mm, footskip=10mm}
+%\areaset{15cm}{20cm}
+
+\lohead[]{}
+\cohead[]{}
+\rohead[]{}
+\lehead[]{}
+\cehead[]{}
+\rehead[]{}
+\lofoot[]{}
+\cofoot[Seite \pagemark]{Seite \pagemark}
+\rofoot[]{}
+\lefoot[]{}
+\cefoot[]{Seite \pagemark}
+\refoot[]{}
+
+%\ModifyLayer[addvoffset=-2pt]{scrheadings.foot.above.line}
+\setkomafont{pagehead}{\normalfont\color{tugrey}}
+\setkomafont{pagefoot}{\small\normalfont\color{tugrey}}
+\setkomafont{headsepline}{\color{tugrey}}
+\setkomafont{footsepline}{\color{tugrey}}
+
+\makeatletter 
+\renewcommand{\l@figure}{\@dottedtocline{1}{1.5em}{3em}} 
+\renewcommand{\l@table}{\@dottedtocline{1}{1.5em}{3em}} 
+
+%Nummerierungen
+\numberwithin{figure}{chapter}			    %Nummerierung der figuren
+\numberwithin{equation}{chapter}		        %Nummerierung der formeln
+
+% Abstände Überschrift
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+\pagenumbering{Roman}
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\roman{section}}
+%-------------------
+\begin{document}
+    \input{Deckblatt}
+    \input{Erklaerung}
+    \setcounter{page}{2}
+    \input{Zusammenfassung}
+    \tableofcontents
+    \input{Nomenklatur}
+    \newpage
+    %--------------Einstellungen Hauptteil--------------------
+    \lohead[]{}
+    \cohead[]{}
+    \rohead[]{\headmark}
+    \lehead[]{\headmark}
+    \cehead[]{}
+    \rehead[]{}
+    \lofoot[]{}
+    \cofoot[Seite \pagemark]{Seite \pagemark}
+    \rofoot[]{}
+    \lefoot[]{}
+    \cefoot[]{Seite \pagemark}
+    \refoot[]{}
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{chapter}{0}
+    \renewcommand\thechapter{\arabic{chapter}}
+    \renewcommand\thesection{\thechapter.\arabic{section}}
+    %-------------Hauptteil------------------------------------
+    \input{Einleitung}
+    \input{Kapitel1}
+    \input{Kapitel2}
+    \input{Kapitel3}
+    \input{Kapitel4}
+    \input{Fazit}
+    %-------------Einstellungen Ende---------------------------
+    %\pagenumbering{Roman}
+    %\setcounter{page}{10}
+    \setcounter{chapter}{2}
+    \renewcommand\thechapter{\Roman{chapter}}
+    \renewcommand\thesection{\roman{section}}
+    %-------------Ende-----------------------------------------
+    \input{Literaturverzeichnis}
+%    \lohead[]{a}
+%    \cohead[]{b}
+%    \rohead[]{c}
+%    \lehead[]{a2}
+%    \cehead[]{b2}
+%    \rehead[]{c2}
+%    \lofoot[]{aa}
+%    \cofoot[Seite \pagemark]{Seite \pagemark}
+%    \rofoot[]{cc}
+%    \lefoot[]{aa2}
+%    \cefoot[]{bb2}
+%    \refoot[]{cc2}
+    \newpage
+    \listoffigures
+    \newpage
+    \listoftables
+    \input{Anhang}
+\end{document}
