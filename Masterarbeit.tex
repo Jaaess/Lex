@@ -3,9 +3,10 @@
 \usepackage[ngerman]{babel} 						%Deutsche Trennung
 \usepackage[utf8]{inputenc}						    %Zeichensatz
 %\usepackage[numbers]{natbib}					    %Zusätzliche Simbole
+
 \usepackage[backend=biber]{biblatex} 
 \bibliography{Literatur}
-									
+	
 \usepackage{amsmath}        					    %MathePacket
 \usepackage{amsfonts}						        %Zusätliche Mathezeichen
 \usepackage{amssymb}							    %Zusätzliche Mathezeichen wie Pfeile 
@@ -102,6 +103,8 @@
 \pagenumbering{Roman}
 \renewcommand\thechapter{\Roman{chapter}}
 \renewcommand\thesection{\roman{section}}
+
+
 %-------------------
 \begin{document}
     \input{Deckblatt}
@@ -131,10 +134,12 @@
     \renewcommand\thesection{\thechapter.\arabic{section}}
     %-------------Hauptteil------------------------------------
     \input{Einleitung}
-    \input{Kapitel1}
-    \input{Kapitel2}
-    \input{Kapitel3}
-    \input{Kapitel4}
+    \input{TechnischeGrundlagen}
+    \input{Loesungsansaetze}
+    \input{Analyse}
+    \input{Design}
+    \input{Implementierung}  
+    \input{Anwendung}
     \input{Fazit}
     %-------------Einstellungen Ende---------------------------
     %\pagenumbering{Roman}
@@ -143,7 +148,7 @@
     \renewcommand\thechapter{\Roman{chapter}}
     \renewcommand\thesection{\roman{section}}
     %-------------Ende-----------------------------------------
-    \input{Literaturverzeichnis}
+	\input{Literaturverzeichnis}
 %    \lohead[]{a}
 %    \cohead[]{b}
 %    \rohead[]{c}
@@ -156,7 +161,8 @@
 %    \lefoot[]{aa2}
 %    \cefoot[]{bb2}
 %    \refoot[]{cc2}
-    \newpage
+    
+	\newpage
     \listoffigures
     \newpage
     \listoftables

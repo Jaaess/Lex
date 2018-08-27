@@ -1992,6 +1992,18 @@
     <bcf:citekey order="16">pitts</bcf:citekey>
     <bcf:citekey order="17">lawrence</bcf:citekey>
     <bcf:citekey order="18">miesbach</bcf:citekey>
+    <bcf:citekey order="19">patterson</bcf:citekey>
+    <bcf:citekey order="20">krizhevsky</bcf:citekey>
+    <bcf:citekey order="21">matlab</bcf:citekey>
+    <bcf:citekey order="22">pitts</bcf:citekey>
+    <bcf:citekey order="23">lawrence</bcf:citekey>
+    <bcf:citekey order="24">miesbach</bcf:citekey>
+    <bcf:citekey order="25">patterson</bcf:citekey>
+    <bcf:citekey order="26">krizhevsky</bcf:citekey>
+    <bcf:citekey order="27">matlab</bcf:citekey>
+    <bcf:citekey order="28">pitts</bcf:citekey>
+    <bcf:citekey order="29">lawrence</bcf:citekey>
+    <bcf:citekey order="30">miesbach</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

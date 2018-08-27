@@ -1,0 +1,194 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{krizhevsky}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
+           family={Krizhevsky},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d569d1d5b8b5a7836017a98b430f959}{%
+           family={Sutskever},
+           familyi={S\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=5aeb1de9b6c6f00a078230c628e6f41c}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey\bibnamedelima E},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \strng{fullhash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \strng{bibnamehash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \strng{authorbibnamehash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \strng{authornamehash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \strng{authorfullhash}{3ab31bf58af50e5ea6fa561177bf01a9}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in neural information processing systems}
+      \field{title}{Imagenet classification with deep convolutional neural networks}
+      \field{year}{2012}
+      \field{pages}{1097\bibrangedash 1105}
+      \range{pages}{9}
+    \endentry
+    \entry{lawrence}{article}{}
+      \name{author}{4}{}{%
+        {{hash=eecf2ce6415b262f4cbccc026c92c684}{%
+           family={Lawrence},
+           familyi={L\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b21e53f501bfe0f2accf1dba2eb80049}{%
+           family={Giles},
+           familyi={G\bibinitperiod},
+           given={C\bibnamedelima Lee},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=bad8c3458d4ad9db77a764f7bfaed629}{%
+           family={Tsoi},
+           familyi={T\bibinitperiod},
+           given={Ah\bibnamedelima Chung},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4392de54f30457820f3090effcc2817a}{%
+           family={Back},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima D},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{29ea216ddc9f129e6d8327d35e363aeb}
+      \strng{fullhash}{c55ab13b8413bf3bcfc3d3a8c222435e}
+      \strng{bibnamehash}{29ea216ddc9f129e6d8327d35e363aeb}
+      \strng{authorbibnamehash}{29ea216ddc9f129e6d8327d35e363aeb}
+      \strng{authornamehash}{29ea216ddc9f129e6d8327d35e363aeb}
+      \strng{authorfullhash}{c55ab13b8413bf3bcfc3d3a8c222435e}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE transactions on neural networks}
+      \field{number}{1}
+      \field{title}{Face recognition: A convolutional neural-network approach}
+      \field{volume}{8}
+      \field{year}{1997}
+      \field{pages}{98\bibrangedash 113}
+      \range{pages}{16}
+    \endentry
+    \entry{pitts}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=9758528ab45cc1bad0d384f1fb7eb108}{%
+           family={McCulloch},
+           familyi={M\bibinitperiod},
+           given={Warren\bibnamedelima S.},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=c5a56e799cdf785e814246c091d36e73}{%
+           family={Pitts},
+           familyi={P\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{fffe788c24685e0f4f93ab6738f2318e}
+      \strng{fullhash}{fffe788c24685e0f4f93ab6738f2318e}
+      \strng{bibnamehash}{fffe788c24685e0f4f93ab6738f2318e}
+      \strng{authorbibnamehash}{fffe788c24685e0f4f93ab6738f2318e}
+      \strng{authornamehash}{fffe788c24685e0f4f93ab6738f2318e}
+      \strng{authorfullhash}{fffe788c24685e0f4f93ab6738f2318e}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The bulletin of mathematical biophysics}
+      \field{title}{A logical calculus of the ideas immanent in nervous activity}
+      \field{volume}{5}
+      \field{year}{1943}
+      \field{pages}{115\bibrangedash 133}
+      \range{pages}{19}
+    \endentry
+    \entry{miesbach}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=efc3125b31d6306587d335b1f5a54331}{%
+           family={Miesbach},
+           familyi={M\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Technical University Munich, Germany}%
+      }
+      \strng{namehash}{efc3125b31d6306587d335b1f5a54331}
+      \strng{fullhash}{efc3125b31d6306587d335b1f5a54331}
+      \strng{bibnamehash}{efc3125b31d6306587d335b1f5a54331}
+      \strng{authorbibnamehash}{efc3125b31d6306587d335b1f5a54331}
+      \strng{authornamehash}{efc3125b31d6306587d335b1f5a54331}
+      \strng{authorfullhash}{efc3125b31d6306587d335b1f5a54331}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bahnf{ü}hrung von Robotern mit neuronalen Netzen}
+      \field{type}{phdthesis}
+      \field{year}{1995}
+    \endentry
+    \entry{matlab}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://de.mathworks.com/help/nnet/gs/neural-network-time-series-prediction-and-modeling.html}}
+      \field{note}{Zugriff: 05.07.2017}
+      \field{title}{Neural Network Time-Series Prediction and Modeling (Matlab Userguide)}
+    \endentry
+    \entry{patterson}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a91ad1fa5d1b2f9bab1f132ccce634ca}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \strng{fullhash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \strng{bibnamehash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \strng{authorbibnamehash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \strng{authornamehash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \strng{authorfullhash}{a91ad1fa5d1b2f9bab1f132ccce634ca}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{zweite Auflage}
+      \field{title}{Künstliche neuronale Netze}
+      \field{year}{1997}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -3,30 +3,58 @@
 \contentsline {chapter}{\numberline {I}Zusammenfassung/Abstract}{II}{chapter.1}
 \contentsline {section}{\numberline {i}Zusammenfassung}{II}{section.1.1}
 \contentsline {section}{\numberline {ii}Abstract}{II}{section.1.2}
-\contentsline {chapter}{\numberline {II}Nomenklatur}{V}{chapter.2}
-\contentsline {section}{\numberline {i}Formelzeichen}{V}{section.2.1}
-\contentsline {section}{\numberline {ii}Indizes}{VI}{section.2.2}
+\contentsline {chapter}{\numberline {II}Nomenklatur}{VI}{chapter.2}
+\contentsline {section}{\numberline {i}Formelzeichen}{VI}{section.2.1}
+\contentsline {section}{\numberline {ii}Indizes}{VII}{section.2.2}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Zielsetzung}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}Ein Kapitel}{2}{chapter.2}
-\contentsline {section}{\numberline {2.1}Section}{2}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Subsection}{2}{subsection.2.1.1}
-\contentsline {section}{\numberline {2.2}Section2}{2}{section.2.2}
-\contentsline {chapter}{\numberline {3}Ein anderes Kapitel}{6}{chapter.3}
-\contentsline {section}{\numberline {3.1}Section}{6}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Subsection}{6}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Section2}{6}{section.3.2}
-\contentsline {chapter}{\numberline {4}Ein neues Kapitel}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Section}{10}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Subsection}{10}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Section2}{10}{section.4.2}
-\contentsline {chapter}{\numberline {5}Ein neues Kapitel}{14}{chapter.5}
-\contentsline {section}{\numberline {5.1}Section}{14}{section.5.1}
+\contentsline {chapter}{\numberline {2}Technische Grundlagen}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Messdaten Extraktion}{2}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}CAN BUS und PEAK}{2}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}OBD und UDS Schnittetellen}{2}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}\IeC {\"U}bertragung in Cloud}{2}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}IOT und MQTT}{2}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}AWS IOT und SDK}{2}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}AWS Lambda Funktionen}{2}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}AWS API Gateway}{2}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Datenablage und Visualisierung}{3}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Elasticsearch}{3}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}DynamoDB}{3}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Kibana}{3}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}JavaFx}{3}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}Sprachsteurung}{4}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}AWS Alexa}{4}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}AWS SNS}{4}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}L\IeC {\"o}sungsans\IeC {\"a}tze}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Elasticsearch vs. DynamoDB}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Subsection}{5}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Kibana und JavaFx}{6}{section.3.2}
+\contentsline {chapter}{\numberline {4}Analyse}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Anforderungen}{10}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Echtzeitf\IeC {\"a}higkeit}{10}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}dynamische Erstellung von Diagramme}{10}{section.4.2}
+\contentsline {chapter}{\numberline {5}Design}{14}{chapter.5}
+\contentsline {section}{\numberline {5.1}Use Cases}{14}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Subsection}{14}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Section2}{15}{section.5.2}
-\contentsline {chapter}{\numberline {6}Fazit}{19}{chapter.6}
-\contentsline {chapter}{\numberline {III}Abbildungsverzeichnis}{20}{chapter.3}
-\contentsline {chapter}{\numberline {IV}Tabellenverzeichnis}{21}{chapter.4}
-\contentsline {chapter}{\numberline {V}Anhang}{22}{chapter.5}
-\contentsline {section}{\numberline {i}Section}{22}{section.5.1}
-\contentsline {subsection}{\numberline {i.1}Subsection}{22}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Modulendiagramm}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}Spezifikation von Datenstrukturen}{15}{section.5.3}
+\contentsline {section}{\numberline {5.4}Spezifikation von Schnittstellen}{15}{section.5.4}
+\contentsline {section}{\numberline {5.5}Klassendiagramm}{15}{section.5.5}
+\contentsline {chapter}{\numberline {6}Implementierung}{16}{chapter.6}
+\contentsline {section}{\numberline {6.1}Architektur}{16}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Subsection}{16}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Realisierungsspezifishe Probleme}{17}{section.6.2}
+\contentsline {section}{\numberline {6.3}Testkonzept und Testergebnisse}{17}{section.6.3}
+\contentsline {section}{\numberline {6.4}interessante Systemteile und Kode}{17}{section.6.4}
+\contentsline {chapter}{\numberline {7}Anwendung}{18}{chapter.7}
+\contentsline {section}{\numberline {7.1}System Bedienung}{18}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Subsection}{18}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}gebliebene Fehlermeldungen und Ursachen}{19}{section.7.2}
+\contentsline {section}{\numberline {7.3}Nutzer Reaktion}{19}{section.7.3}
+\contentsline {chapter}{\numberline {8}Fazit}{20}{chapter.8}
+\contentsline {chapter}{\numberline {III}Literatur}{21}{chapter.3}
+\contentsline {chapter}{\numberline {IV}Abbildungsverzeichnis}{22}{chapter.4}
+\contentsline {chapter}{\numberline {V}Tabellenverzeichnis}{23}{chapter.5}
+\contentsline {chapter}{\numberline {VI}Anhang}{24}{chapter.6}
+\contentsline {section}{\numberline {i}Section}{24}{section.6.1}
+\contentsline {subsection}{\numberline {i.1}Subsection}{24}{subsection.6.1.1}
